@@ -1,7 +1,7 @@
-import { Route as rootRoute } from './pages/__root';
-import { Route as AboutRouteImport } from './pages/about/route';
-import { Route as IndexImport } from './pages/index';
-import { Route as TasksTaskIdImport } from './pages/tasks/$taskId';
+import { Route as rootRoute } from './../pages/__root';
+import { Route as AboutRouteImport } from './../pages/about/route';
+import { Route as IndexImport } from './../pages/index';
+import { Route as TasksTaskIdImport } from './../pages/tasks/$taskId';
 
 const AboutRouteRoute = AboutRouteImport.update({
   path: '/about',

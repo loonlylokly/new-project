@@ -26,11 +26,11 @@
     "paths": {
       "entities/*": ["./entities/*"],
       "public/*": ["../public/*"],
-      "src/*": ["../src/*"],
-      "@/*": ["../src/*"]
+      "types/*": ["../types/*"],
+      "src/*": ["../src/*"]
     }
   },
-  "include": ["src", "types/vite-env.d.ts"],
-  "exclude": ["node_modules", "src/routeTree.gen.ts"],
+  "include": ["src", "types"],
+  "exclude": ["node_modules", "src/app/routeTree.gen.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

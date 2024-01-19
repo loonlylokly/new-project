@@ -6,8 +6,8 @@ export const Route = new FileRoute('/tasks/$taskId').createRoute({
 
 function TaskPage() {
   return (
-    <div>
+    <main>
       <h3>Welcome Task Page!</h3>
-    </div>
+    </main>
   );
 }

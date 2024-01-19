@@ -1,10 +1,8 @@
 import { NotFoundRoute, Router, RouterProvider } from '@tanstack/react-router';
+import { Route as rootRoute } from 'pages/__root';
 import ReactDOM from 'react-dom/client';
 
-// eslint-disable-next-line no-relative-import-paths/no-relative-import-paths
-import { Route as rootRoute } from '../pages/__root';
-// eslint-disable-next-line no-relative-import-paths/no-relative-import-paths
-import { routeTree } from '../routeTree.gen';
+import { routeTree } from './routeTree.gen';
 
 const notFoundRoute = new NotFoundRoute({
   component: () => '404 Not Found',

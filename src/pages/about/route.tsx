@@ -6,8 +6,8 @@ export const Route = new FileRoute('/about').createRoute({
 
 function AboutPage() {
   return (
-    <div>
+    <main>
       <h3>About</h3>
-    </div>
+    </main>
   );
 }
