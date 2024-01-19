@@ -1,0 +1,38 @@
+:where(.button) {
+  margin: 0;
+  padding: 0.8rem 1.6rem;
+  color: var(--color-back-primary);
+  background-color: var(--color-text-primary);
+  background-image: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 1rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 100%;
+  white-space: nowrap;
+  cursor: pointer;
+  appearance: button;
+}
+
+:where(.primary) {
+}
+
+:where(.secondary) {
+}
+
+:where(.outline) {
+}
+
+:where(.ghost) {
+}
+
+:where(.link) {
+}
+
+:where(.sm) {
+}
+:where(.lg) {
+}

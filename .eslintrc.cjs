@@ -16,7 +16,7 @@ module.exports = {
     '.vscode/**',
     'public/**',
     'vite.config.ts',
-    'src/routeTree.gen.ts',
+    'src/app/routeTree.gen.ts',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -89,6 +89,5 @@ module.exports = {
     'sort-destructure-keys/sort-destructure-keys': 'warn',
     'sort-keys-fix/sort-keys-fix': 'warn',
     'unused-imports/no-unused-imports': 'error',
-    'no-relative-import-paths': 'off',
   },
 };
