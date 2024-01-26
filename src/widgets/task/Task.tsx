@@ -11,12 +11,13 @@ import { TFormTask, TTask } from 'types/task';
 import styles from './Task.module.css';
 
 export function Task() {
-  const taskId = Number.parseInt(useParams({ strict: false }));
+  const { taskId } = useParams({ strict: false });
+  const id = Number.parseInt(taskId);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const queryClient = useQueryClient();
   const { data: task, isPending } = useQuery({
-    queryFn: ({ signal }) => getOneTask(signal, taskId),
-    queryKey: ['task', { taskId }],
+    queryFn: ({ signal }) => getOneTask(signal, id),
+    queryKey: ['task', { id }],
     staleTime: Infinity,
   });
 
@@ -62,7 +63,7 @@ export function Task() {
             if (newTask) {
               await updateOneTask({
                 datetime: newTask.datetime,
-                id: taskId,
+                id: id,
                 text: newTask.text,
               });
             }
