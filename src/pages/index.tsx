@@ -1,5 +1,6 @@
 import { FileRoute } from '@tanstack/react-router';
-import SearchForm from 'widgets/searchForm/SearchForm';
+import { AddTask } from 'widgets/addTask/AddTask';
+import { SearchForm } from 'widgets/searchForm/SearchForm';
 import { TasksList } from 'widgets/tasksList/TasksList';
 
 export const Route = new FileRoute('/').createRoute({
@@ -11,6 +12,7 @@ function HomePage() {
     <main>
       <SearchForm />
       <TasksList />
+      <AddTask />
     </main>
   );
 }

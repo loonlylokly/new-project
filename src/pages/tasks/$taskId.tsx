@@ -1,4 +1,5 @@
 import { FileRoute } from '@tanstack/react-router';
+import { Task } from 'widgets/task/Task';
 
 export const Route = new FileRoute('/tasks/$taskId').createRoute({
   component: TaskPage,
@@ -7,7 +8,7 @@ export const Route = new FileRoute('/tasks/$taskId').createRoute({
 function TaskPage() {
   return (
     <main>
-      <h3>Welcome Task Page!</h3>
+      <Task />
     </main>
   );
 }

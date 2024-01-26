@@ -2,7 +2,7 @@ import { Input } from 'shared/ui';
 
 import styles from './SearchForm.module.css';
 
-export default function SearchForm() {
+export function SearchForm() {
   return (
     <section className={styles.wrapper}>
       <form className={styles.form}>

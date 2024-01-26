@@ -1,0 +1,12 @@
+.addtask {
+  display: flex;
+  justify-content: center;
+}
+
+.dialog {
+  background-color: var(--color-back-primary);
+}
+
+.btn_addtask {
+  width: fit-content;
+}

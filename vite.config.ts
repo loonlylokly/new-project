@@ -9,6 +9,7 @@ export default defineConfig({
   resolve: {
     alias: {
       widgets: resolve(__dirname, 'src/widgets'),
+      api: resolve(__dirname, 'src/api'),
       shared: resolve(__dirname, 'src/shared'),
       entities: resolve(__dirname, 'src/entities'),
       features: resolve(__dirname, 'src/features'),

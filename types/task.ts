@@ -4,10 +4,7 @@ export type TTask = {
   datetime: string;
 };
 
-export type TFormTask = {
-  text: string;
-  datetime: string;
-};
+export type TFormTask = Omit<TTask, 'id'>;
 
 export enum EStatusEditTask {
   error = 'error',

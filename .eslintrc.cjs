@@ -66,14 +66,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'jsx-quotes': [1, 'prefer-double'],
     'no-extra-semi': 'off',
-    'no-magic-numbers': [
-      'warn',
-      {
-        ignore: [0, 1, -1],
-        ignoreArrayIndexes: true,
-        ignoreDefaultValues: true,
-      },
-    ],
+    'no-magic-numbers': 'off',
+    'no-extra-boolean-cast': 'off',
     'no-relative-import-paths/no-relative-import-paths': [
       'warn',
       { allowSameFolder: true, rootDir: 'src' },
@@ -89,5 +83,6 @@ module.exports = {
     'sort-destructure-keys/sort-destructure-keys': 'warn',
     'sort-keys-fix/sort-keys-fix': 'warn',
     'unused-imports/no-unused-imports': 'error',
+    'react/require-default-props': 'off',
   },
 };
