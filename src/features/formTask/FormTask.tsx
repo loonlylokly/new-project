@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { DEFAULT_DATA_FORMAT } from 'shared/constants/constants';
 import { Button } from 'shared/ui';
-import { TFormTask, TTask } from 'types/task';
+import { TFormTask } from 'types/task';
 import { z } from 'zod';
 
 import styles from './FormTask.module.css';
@@ -18,11 +18,11 @@ const formTaskSchema = z.object({
 type FormFields = z.infer<typeof formTaskSchema>;
 
 type Props = {
-  taskCurrent?: TTask;
+  taskCurrent?: TFormTask;
   btnCancelText?: string;
   actionCancel?: () => void;
   btnConfirmText?: string;
-  actionConfirm?: (text?: string, datetime?: string) => void;
+  actionConfirm?: (task?: TFormTask) => void;
 };
 
 export function FormTask({
@@ -32,7 +32,6 @@ export function FormTask({
   btnConfirmText = 'Save',
   taskCurrent = {
     datetime: '',
-    id: '',
     text: '',
   },
 }: Props) {
@@ -57,7 +56,7 @@ export function FormTask({
 
   const onSubmit: SubmitHandler<TFormTask> = async (data) => {
     try {
-      actionConfirm(data.text, data.datetime);
+      actionConfirm({ datetime: data.datetime, text: data.text });
       reset();
     } catch (error) {
       setError('root', {

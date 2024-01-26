@@ -1,4 +1,4 @@
-import { TFormTask, TTask } from 'types/task';
+import { TFormTask, TTask, TTaskId } from 'types/task';
 
 export const getTasks = async (signal: AbortSignal): Promise<TTask[]> => {
   const tasksResponse = await fetch('http://localhost:5000/api/tasks', {
@@ -11,7 +11,7 @@ export const getTasks = async (signal: AbortSignal): Promise<TTask[]> => {
 
 export const getOneTask = async (
   signal: AbortSignal,
-  id: string
+  id: TTaskId
 ): Promise<TTask> => {
   const tasksResponse = await fetch(`http://localhost:5000/api/tasks/${id}`, {
     signal,
@@ -32,6 +32,11 @@ export const addTask = async (task: TFormTask) => {
 };
 
 export const updateTask = async (task: TTask) => {
+  // const newTask = {
+  //   datetime: task.datetime,
+  //   id: Number.parseInt(task.id),
+  //   text: task.text,
+  // };
   await fetch(`http://localhost:5000/api/tasks`, {
     body: JSON.stringify(task),
     headers: {
@@ -42,7 +47,7 @@ export const updateTask = async (task: TTask) => {
   });
 };
 
-export const deleteTask = async (id: string) => {
+export const deleteTask = async (id: TTaskId) => {
   await fetch(`http://localhost:5000/api/tasks/${id}`, {
     headers: {
       Accept: 'application/json',

@@ -1,10 +1,11 @@
-export type TTask = {
-  id: string;
+export type TTask = { id: TTaskId } & TFormTask;
+
+export type TTaskId = number;
+
+export type TFormTask = {
   text: string;
   datetime: string;
 };
-
-export type TFormTask = Omit<TTask, 'id'>;
 
 export enum EStatusEditTask {
   error = 'error',

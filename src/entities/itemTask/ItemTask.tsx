@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import { useMemo } from 'react';
 import { DISPLAY_DATA_FORMAT } from 'shared/constants/constants';
 import { Button } from 'shared/ui';
-import { TTask } from 'types/task';
+import { TTask, TTaskId } from 'types/task';
 
 import styles from './ItemTask.module.css';
 
@@ -22,7 +22,7 @@ export function ItemTask({ task }: Props) {
   const queryClient = useQueryClient();
 
   const { mutateAsync: deleteOneTask } = useMutation({
-    mutationFn: (id: string) => deleteTask(id),
+    mutationFn: (id: TTaskId) => deleteTask(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tasks'] });
     },
@@ -34,7 +34,7 @@ export function ItemTask({ task }: Props) {
         className={styles.link}
         to={'/tasks/$taskId'}
         params={{
-          taskId: task.id,
+          taskId: task.id.toString(),
         }}
       >
         <span className={styles.text}>{task.id}</span>

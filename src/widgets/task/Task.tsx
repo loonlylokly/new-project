@@ -6,12 +6,12 @@ import { FormTask } from 'features/formTask/FormTask';
 import { useMemo, useRef } from 'react';
 import { DISPLAY_DATA_FORMAT } from 'shared/constants/constants';
 import { Button, Dialog } from 'shared/ui';
-import { TTask } from 'types/task';
+import { TFormTask, TTask } from 'types/task';
 
 import styles from './Task.module.css';
 
 export function Task() {
-  const { taskId } = useParams({ strict: false });
+  const taskId = Number.parseInt(useParams({ strict: false }));
   const dialogRef = useRef<HTMLDialogElement>(null);
   const queryClient = useQueryClient();
   const { data: task, isPending } = useQuery({
@@ -58,9 +58,13 @@ export function Task() {
             dialogRef.current?.close();
             queryClient.cancelQueries({ queryKey: ['tasks'] });
           }}
-          actionConfirm={async (text?: string, datetime?: string) => {
-            if (datetime && text) {
-              await updateOneTask({ datetime, id: taskId, text });
+          actionConfirm={async (newTask?: TFormTask) => {
+            if (newTask) {
+              await updateOneTask({
+                datetime: newTask.datetime,
+                id: taskId,
+                text: newTask.text,
+              });
             }
             dialogRef.current?.close();
           }}

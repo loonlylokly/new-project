@@ -3,6 +3,7 @@ import { addTask } from 'api/tasks';
 import { FormTask } from 'features/formTask/FormTask';
 import { useRef } from 'react';
 import { Button, Dialog } from 'shared/ui';
+import { TFormTask } from 'types/task';
 
 import styles from './AddTask.module.css';
 
@@ -33,9 +34,9 @@ export function AddTask() {
             dialogRef.current?.close();
             queryClient.cancelQueries({ queryKey: ['tasks'] });
           }}
-          actionConfirm={async (text?: string, datetime?: string) => {
-            if (datetime && text) {
-              await addNewTask({ datetime, text });
+          actionConfirm={async (newTask?: TFormTask) => {
+            if (newTask) {
+              await addNewTask(newTask);
             }
             dialogRef.current?.close();
           }}
