@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsr generate && tsc && vite build",
     "preview": "vite preview",
     "lint": "prettier --check \"**/*{js,jsx,ts,tsx}\" && eslint . --ext ts,tsx --report-unused-disable-directives",
     "format": "prettier --write ."
@@ -29,6 +29,7 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
+    "@tanstack/router-cli": "^1.12.8",
     "@tanstack/router-vite-plugin": "^1.12.3",
     "@testing-library/jest-dom": "6.1.5",
     "@testing-library/react": "14.1.2",
