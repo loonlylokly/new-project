@@ -1,6 +1,6 @@
 .form {
-  width: 70%;
-  min-width: 25rem;
+  width: 30dvw;
+  min-width: 24rem;
   max-width: 70rem;
   margin-top: 1.5rem;
   display: flex;
@@ -20,4 +20,9 @@
 
 .btnCancel {
   padding: 1rem;
+}
+
+.error {
+  color: red;
+  text-align: center;
 }

@@ -29,10 +29,10 @@ export function Task() {
   });
 
   const cachedDatetime = useMemo(() => dayjs(task?.datetime), [task?.datetime]);
+
   if (isPending) {
     return <h1>Loading...</h1>;
   }
-
   if (!task) {
     return <h1>There is no such task</h1>;
   }
@@ -46,7 +46,7 @@ export function Task() {
       </div>
       <Button
         className={styles.btn_edit}
-        onClick={() => dialogRef.current?.show()}
+        onClick={() => dialogRef.current?.showModal()}
       >
         edit
       </Button>
@@ -57,7 +57,6 @@ export function Task() {
           taskCurrent={task}
           actionCancel={() => {
             dialogRef.current?.close();
-            queryClient.cancelQueries({ queryKey: ['tasks'] });
           }}
           actionConfirm={async (newTask?: TFormTask) => {
             if (newTask) {
@@ -66,8 +65,8 @@ export function Task() {
                 id: id,
                 text: newTask.text,
               });
+              dialogRef.current?.close();
             }
-            dialogRef.current?.close();
           }}
         />
       </Dialog>

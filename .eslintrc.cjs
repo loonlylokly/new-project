@@ -66,7 +66,14 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'jsx-quotes': [1, 'prefer-double'],
     'no-extra-semi': 'off',
-    'no-magic-numbers': 'off',
+    'no-magic-numbers': [
+      'warn',
+      {
+        ignore: [0, 1, -1],
+        ignoreArrayIndexes: true,
+        ignoreDefaultValues: true,
+      },
+    ],
     'no-extra-boolean-cast': 'off',
     'no-relative-import-paths/no-relative-import-paths': [
       'warn',

@@ -35,7 +35,7 @@ export const Input = forwardRef<HTMLInputElement, Props>(
           handleChange(e);
         }, debounceTime);
       }
-      return null;
+      return (e: React.ChangeEvent<HTMLInputElement>) => handleChange(e);
     }, [debounceTime, handleChange]);
 
     return (
@@ -44,9 +44,10 @@ export const Input = forwardRef<HTMLInputElement, Props>(
           {label}
         </Label>
         <input
+          id={label}
           name={label}
           className={`${styles.input} ${inputStyleClass}`}
-          onChange={() => (debounceTime ? debounceHandleChange : handleChange)}
+          onChange={(e) => debounceHandleChange(e)}
           ref={ref}
           {...rest}
         />

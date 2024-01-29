@@ -1,0 +1,15 @@
+input:is(input:where(.input)) {
+  padding: 0.7rem 1rem;
+  font-size: 1.6rem;
+  border-radius: 1.2rem;
+  border: 0.01rem solid var(--color-text-primary);
+}
+
+label:is(label:is(:button:where(.label))) {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+span:is(span:where(.error)) {
+  color: red;
+}

@@ -22,17 +22,17 @@ export function AddTask() {
     <section className={styles.addtask}>
       <Button
         className={styles.btn_addtask}
-        onClick={() => dialogRef.current?.show()}
+        onClick={() => dialogRef.current?.showModal()}
       >
         Add Task
       </Button>
       <Dialog className={styles.dialog} ref={dialogRef}>
         <FormTask
+          taskCurrent={{ datetime: '', text: '' }}
           btnConfirmText="Add"
           btnCancelText="Cancel"
           actionCancel={() => {
             dialogRef.current?.close();
-            queryClient.cancelQueries({ queryKey: ['tasks'] });
           }}
           actionConfirm={async (newTask?: TFormTask) => {
             if (newTask) {
