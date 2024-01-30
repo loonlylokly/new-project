@@ -1,0 +1,28 @@
+.form {
+  width: 30dvw;
+  min-width: 24rem;
+  max-width: 70rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 1rem;
+}
+
+.btnConfirm {
+  padding: 1rem;
+}
+
+.btnCancel {
+  padding: 1rem;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

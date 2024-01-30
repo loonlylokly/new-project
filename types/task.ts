@@ -1,8 +1,6 @@
-export type TTask = {
-  id: string;
-  text: string;
-  datetime: string;
-};
+export type TTask = { id: TTaskId } & TFormTask;
+
+export type TTaskId = number;
 
 export type TFormTask = {
   text: string;

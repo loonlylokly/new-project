@@ -74,6 +74,7 @@ module.exports = {
         ignoreDefaultValues: true,
       },
     ],
+    'no-extra-boolean-cast': 'off',
     'no-relative-import-paths/no-relative-import-paths': [
       'warn',
       { allowSameFolder: true, rootDir: 'src' },
@@ -89,5 +90,6 @@ module.exports = {
     'sort-destructure-keys/sort-destructure-keys': 'warn',
     'sort-keys-fix/sort-keys-fix': 'warn',
     'unused-imports/no-unused-imports': 'error',
+    'react/require-default-props': 'off',
   },
 };

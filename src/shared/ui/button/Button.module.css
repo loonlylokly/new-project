@@ -1,4 +1,4 @@
-:where(.button) {
+button:is(button:where(.button)) {
   margin: 0;
   padding: 0.8rem 1.6rem;
   color: var(--color-back-primary);
@@ -7,7 +7,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: none;
+  border: 0.01rem solid var(--color-text-primary);
   border-radius: 1rem;
   font-weight: 500;
   font-size: 1.4rem;
@@ -17,22 +17,29 @@
   appearance: button;
 }
 
-:where(.primary) {
+button:is(button:where(.button)):disabled {
+  color: var(--color-text-secondary);
+  background-color: var(--color-back-secondary);
+  border: 0.01rem solid var(--color-back-secondary);
+  cursor: default;
 }
 
-:where(.secondary) {
+button:is(button:where(.primary)) {
 }
 
-:where(.outline) {
+button:is(button:where(.secondary)) {
 }
 
-:where(.ghost) {
+button:is(button:where(.outline)) {
 }
 
-:where(.link) {
+button:is(button:where(.ghost)) {
 }
 
-:where(.sm) {
+button:is(button:where(.link)) {
 }
-:where(.lg) {
+
+button:is(button:where(.sm)) {
+}
+button:is(button:where(.lg)) {
 }

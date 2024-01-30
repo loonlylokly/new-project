@@ -10,13 +10,9 @@
 .list {
   width: 80%;
   min-width: 30rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
   list-style-type: none;
-}
-
-.btn_addtask {
-  width: fit-content;
-  margin-top: 1.4rem;
 }
