@@ -6,7 +6,7 @@ import {
   updateTask,
 } from 'api/tasks';
 import { TTask } from 'types/task';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const tasksList: TTask[] = [
   {
@@ -33,7 +33,7 @@ function mockFetchResponse(status: number, data?: unknown) {
 }
 
 describe('Task Api', () => {
-  beforeEach(() => {
+  afterEach(() => {
     mockFetch.mockReset();
   });
 
