@@ -45,3 +45,13 @@ export function renderComponent(router: typeof _router) {
     </QueryClientProvider>
   );
 }
+
+export const returnComponentWithRoute = (router: typeof _router) => {
+  const queryClient = new QueryClient();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  );
+};

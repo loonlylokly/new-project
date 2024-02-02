@@ -1,11 +1,11 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { Link } from '@tanstack/react-router';
-import { deleteTask } from 'api/tasks';
 import dayjs from 'dayjs';
 import { useMemo } from 'react';
 import { DISPLAY_DATA_FORMAT } from 'shared/constants/constants';
+import { useDeleteTask } from 'shared/hooks/useDeleteTask';
 import { Button } from 'shared/ui';
-import { TTask, TTaskId } from 'types/task';
+import { TTask } from 'types/task';
 
 import styles from './ItemTask.module.css';
 
@@ -21,12 +21,7 @@ export function ItemTask({ task }: Props) {
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync: deleteOneTask } = useMutation({
-    mutationFn: (id: TTaskId) => deleteTask(id),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['tasks'] });
-    },
-  });
+  const { deleteOneTask } = useDeleteTask(queryClient);
 
   return (
     <li className={styles.task}>

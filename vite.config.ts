@@ -14,6 +14,14 @@ export default defineConfig({
         singleFork: true,
       },
     },
+    coverage: {
+      provider: 'v8',
+      exclude: [
+        'src/app/routeTree.gen.ts',
+        '.eslintrc.cjs',
+        'types/vite-env.d.ts',
+      ],
+    },
   },
   resolve: {
     alias: {
