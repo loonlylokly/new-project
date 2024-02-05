@@ -1,11 +1,11 @@
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Outlet, RootRoute } from '@tanstack/react-router';
+import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 
 // eslint-disable-next-line no-relative-import-paths/no-relative-import-paths
 import Header from '../widgets/header/Header';
 
-export const Route = new RootRoute({
+export const Route = createRootRoute({
   component: RootComponent,
 });
 

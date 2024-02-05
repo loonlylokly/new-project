@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
@@ -6,6 +7,22 @@ import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), TanStackRouterVite()],
+  test: {
+    environment: 'happy-dom',
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+    },
+    coverage: {
+      provider: 'v8',
+      exclude: [
+        'src/app/routeTree.gen.ts',
+        '.eslintrc.cjs',
+        'types/vite-env.d.ts',
+      ],
+    },
+  },
   resolve: {
     alias: {
       widgets: resolve(__dirname, 'src/widgets'),

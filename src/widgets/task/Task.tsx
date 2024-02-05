@@ -11,7 +11,7 @@ import { TFormTask, TTask } from 'types/task';
 import styles from './Task.module.css';
 
 export function Task() {
-  const { taskId } = useParams({ strict: false });
+  const { taskId } = useParams({ from: '/tasks/$taskId' });
   const id = Number.parseInt(taskId);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const queryClient = useQueryClient();
