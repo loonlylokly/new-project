@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import dayjs from 'dayjs';
 import { FieldsFormTask } from 'features/fieldsFormTask/FieldsFormTask';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import {
   DEFAULT_DATA_FORMAT,
@@ -58,25 +58,22 @@ export function FormTask({
     resolver: zodResolver(formTaskSchema),
   });
 
-  useEffect(() => {
-    reset({ datetime: cachedDatetime, text: taskCurrent.text });
-  }, [taskCurrent, cachedDatetime, reset]);
-
   const onSubmit: SubmitHandler<TFormTask> = async (data) => {
     try {
       await actionConfirm({ datetime: data.datetime, text: data.text });
+      reset({ datetime: data.datetime, text: data.text });
     } catch (error) {
       setError('root', {
         message: "Something Wrong. Can't submit the form",
       });
-      console.log(error, 'errors');
+      console.log(error, errors, 'errors');
     }
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <FieldsFormTask registore={register} errors={errors} />
-      <p className={styles.error}>{errors.root?.message}&nbsp;</p>
+      <p className={styles.error}>{errors.root?.message}</p>
       <div className={styles.btnWrapper}>
         <Button
           className={styles.btnCancel}

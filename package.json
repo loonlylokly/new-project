@@ -21,7 +21,7 @@
   "dependencies": {
     "@hookform/resolvers": "3.3.4",
     "@tanstack/react-query": "5.17.19",
-    "@tanstack/react-router": "1.4.6",
+    "@tanstack/react-router": "^1.15.17",
     "dayjs": "1.11.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
