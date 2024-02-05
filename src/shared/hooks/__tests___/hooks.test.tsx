@@ -17,6 +17,5 @@ describe('Hooks', () => {
       wrapper: createWrapper(),
     });
     console.log(result);
-    // expect(result.current.isError).toEqual(false);
   });
 });
